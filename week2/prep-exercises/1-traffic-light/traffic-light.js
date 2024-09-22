@@ -6,17 +6,17 @@
  */
 
 function getCurrentState(trafficLight) {
-  // TODO
+  return trafficLight.possibleStates[trafficLight.stateIndex]
   // Should return the current state (i.e. colour) of the `trafficLight`
   // object passed as a parameter.
 }
 
 function getNextStateIndex(trafficLight) {
-  // TODO
-  // Return the index of the next state of the `trafficLight` such that:
-  // - if the color is green, it will turn to orange
-  // - if the color is orange, it will turn to red
-  // - if the color is red, it will turn to green
+  if (trafficLight.stateIndex < trafficLight.possibleStates.length-1) {
+    return trafficLight.stateIndex + 1;
+  } else {
+    return 0
+  }
 }
 
 // This function loops for the number of seconds specified by the `secs`
@@ -39,14 +39,32 @@ function main() {
 
   for (let cycle = 0; cycle < 6; cycle++) {
     const currentState = getCurrentState(trafficLight);
+    if (!currentState) {
+      throw new Error('No traffic light state!')
+    }
     console.log(cycle, "The traffic light is now", currentState);
 
-    waitSync(1); // Wait a second before going to the next state
-    trafficLight.stateIndex = getNextStateIndex(trafficLight);
+    try {
+      waitSync(1); // Wait a second before going to the next state
+    } catch (error) {
+      console.error(error)
+    }
+    const nextStateIndex = getNextStateIndex(trafficLight);
+    if (nextStateIndex > trafficLight.possibleStates.length) {
+      throw new Error('Index greater than possible states')
+    }
+    trafficLight.stateIndex = nextStateIndex;
   }
 }
 
-main();
+try {
+  main();
+  // start at the top
+  // watch
+  // expression
+} catch (error) {
+  console.error(error)
+}
 /**
  * The output should be:
 

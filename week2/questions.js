@@ -8,12 +8,15 @@ let count = 10;
 
 function updateCount() {
   // Local variable with the same name as the global variable
-  let count = 5;
-
+ let count = 5;
   console.log("Inside function, local count:", count);
 
   // Modify the local variable
   count = count + 1;
+
+  function innerFunction(count) {
+    console.log(count)
+  }
 
   console.log("Inside function, after modification:", count);
 }

@@ -83,6 +83,8 @@ function sum(...numbers) {
 
 console.log(sum(1, 2, 3)); // Output: 6
 console.log(sum(1, 2, 3, 4, 5)); // Output: 15
+sum(1, 2, 3, 4, 5, 10232, 2323)
+
 ````
 
 ```javascript
@@ -170,9 +172,6 @@ console.log(greet("Hello", "Alice", "Bob", "Charlie"));
   console.error('Error:', error);
   }
   }
-
-  ```
-
   ```
 
 ### Ali Abbas
