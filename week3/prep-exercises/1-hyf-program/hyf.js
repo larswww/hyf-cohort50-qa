@@ -1,15 +1,8 @@
-const modules = [
-  { name: "html-css", displayName: "HTML/CSS" },
-  { name: "javascript", displayName: "JavaScript" },
-  { name: "browsers", displayName: "Browsers" },
-  { name: "using-apis", displayName: "Using APIs" },
-  { name: "node", displayName: "Node.js" },
-  { name: "databases", displayName: "Databases" },
-  { name: "react", displayName: "React" },
-  { name: "project", displayName: "Project" },
+export const modules = [
+
 ];
 
-const classes = [
+export const classes = [
   {
     name: "class32",
     startDate: "23-3-2021",
